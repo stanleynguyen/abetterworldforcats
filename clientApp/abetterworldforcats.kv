@@ -1,0 +1,686 @@
+<login_screen>:
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1background.png"
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1cat.png"
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1grumpytitle.png"
+	GridLayout:
+		cols: 1
+		row_force_default: True
+		row_default_height: 30
+		spacing: 10
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+			Label:
+				text: "User Name"
+				size_hint: (0.4, 1)
+				color: (0,0,0,1)
+			TextInput:
+				id:username
+				multiline:False
+				size_hint: (0.5, 1)
+			Label:
+				size_hint: (0.1, 1)
+		BoxLayout:
+			Label:
+				text:"Password"
+				size_hint: (0.4, 1)
+				color: (0,0,0,1)
+			TextInput:
+				id:password
+				multiline: False
+				password: True
+				size_hint: (0.5, 1)
+			Label:
+				size_hint: (0.1, 1)
+		BoxLayout:
+			Label:
+				id:status
+				color: (0,0,0,1)
+		BoxLayout:
+			Label:
+				size_hint: (0.05, 1)
+			Button:
+				text: "Log In"
+				size_hint: (0.425, 1)
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.manager.transition.direction = 'left'
+					root.log_in()
+			Label:
+				size_hint: (0.05, 1)
+			Button:
+				text: "Sign Up"
+				color: (0,0,0,1)
+				size_hint: (0.425, 1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.manager.transition.direction = 'left'
+					root.manager.current = 'signup'
+			Label:
+				size_hint: (0.05, 1)
+
+
+<signup_screen>:
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1background.png"
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1cat.png"
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1grumpytitle.png"
+	GridLayout:
+		id: sign_up
+		cols: 1
+		row_force_default: True
+		row_default_height: 30
+		spacing: 10
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+			Label:
+				text: "User Name"
+				size_hint: (0.4, 1)
+				color: (0,0,0,1)
+			TextInput:
+				id: username
+				multiline: False
+				size_hint: (0.55, 1)
+			Label:
+				size_hint: (0.05, 1)
+		BoxLayout:
+			Label:
+				text: "Email"
+				size_hint: (0.4, 1)
+				color: (0,0,0,1)
+			TextInput:
+				id: email
+				multiline: False
+				size_hint: (0.55, 1)
+			Label:
+				size_hint: (0.05, 1)
+		BoxLayout:
+			Label:
+				text: "Password"
+				size_hint: (0.4, 1)
+				color: (0,0,0,1)
+			TextInput:
+				id: password
+				multiline: False
+				password: True
+				size_hint: (0.55, 1)
+			Label:
+				size_hint: (0.05, 1)
+		BoxLayout:
+			Label:
+				text: "Confirm Password"
+				size_hint: (0.4, 1)
+				color: (0,0,0,1)
+			TextInput:
+				id: password_confirm
+				multiline: False
+				password: True
+				size_hint: (0.55, 1)
+			Label:
+				size_hint: (0.05, 1)
+		BoxLayout:
+			Label:
+				id:status
+				color: (0,0,0,1)
+		BoxLayout:
+			Button:
+				text: "Sign Me Up!"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.manager.transition.direction = 'left'
+					root.sign_me_up()
+		BoxLayout:
+			Button:
+				text: "<< Back to Login"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.manager.transition.direction = 'right'
+					root.manager.current = 'login'
+
+<profile_screen>:
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1background.png"
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1cat.png"
+			color: (1,1,1,0.5)
+	GridLayout:
+		cols: 1
+		row_force_default: True
+		row_default_height: 30
+		spacing: 10
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+			AsyncImage:
+				id: pic
+				size_hint: (1, 10)
+		BoxLayout:
+			Label:
+				id: user
+				color: (0,0,0,1)
+				font_size: 20
+		BoxLayout:
+			Label:
+				id: email
+				color: (0,0,0,1)
+		BoxLayout:
+			Button:
+				text: "Dispensers Manager"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.transfer_data()
+					root.manager.transition.direction = 'left'
+					root.manager.current = 'dispenser_screen'
+		BoxLayout:
+			Button:
+				text: "Your Badges"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.to_badges()
+		BoxLayout:
+			Button:
+				text: "Settings"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.manager.transition.direction = 'left'
+					root.manager.current = 'settings'
+		BoxLayout:
+			Button:
+				text: "Have a burning question?"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.to_contact_form()
+		BoxLayout:
+		BoxLayout:
+			Button:
+				text: "Log Out"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/logout_button.png"
+				background_down: "./assets/buttons/logout_button_down.png"
+				on_press:
+					root.manager.transition.direction = 'right'
+					root.manager.current = 'login'
+
+<dispenser_screen>:
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1background.png"
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1cat.png"
+	GridLayout:
+		id: dispensers_manager
+		cols: 1
+		row_force_default: True
+		row_default_height: 30
+		spacing: 10
+
+<dispenser_status>:
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1background.png"
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1cat.png"
+	GridLayout:
+		cols: 1
+		row_force_default: True
+		row_default_height: 30
+		spacing: 10
+		BoxLayout:
+			Button:
+				text: "<< Back to Dispenser Manager"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.manager.transition.direction = 'right'
+					root.manager.current = 'dispenser_screen'
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+			Image:
+				id: status_img
+				size_hint: (1, 10)
+		BoxLayout:
+			Label:
+				id: dispenser_name
+				color: (0,0,0,1)
+				font_size: 20
+		BoxLayout:
+			Label:
+				id: last_fill
+				color: (0,0,0,1)
+				font_size: 20
+		
+<add_dispenser>:
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1background.png"
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1cat.png"
+	GridLayout:
+		id: search_page
+		cols: 1
+		row_force_default: True
+		row_default_height: 30
+		spacing: 10
+		BoxLayout:
+			Button:
+				text: "<< Back to Dispenser Manager"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.to_dispenser_manager()
+		BoxLayout:
+			TextInput:
+				id: search_box
+				multiline: False
+		BoxLayout:
+			Button:
+				text: "Search by name"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.search_by_name()
+			Button:
+				text: "Search by ZIP code"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.search_by_zip()
+	GridLayout:
+		id: search_result
+		cols: 1
+		row_force_default: True
+		row_default_height: 30
+		spacing: 10
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+
+
+<req_dispenser>:
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1background.png"
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1cat.png"
+	GridLayout:
+		id: buy_dispenser
+		cols: 1
+		row_force_default: True
+		row_default_height: 30
+		BoxLayout:
+			Button:
+				text: "<< Back to Dispenser Manager"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.manager.transition.direction = 'right'
+					root.manager.current = 'dispenser_screen'
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+		BoxLayout:
+			Image:
+				source: './assets/dispenser/dispenser.jpg'
+				size_hint: (1, 8)
+		BoxLayout:
+		BoxLayout:
+			Label:
+				text: "Shinglez® Dispenser"
+				font_size: 20
+				color: (0,0,0,1)
+		BoxLayout:
+			Label:
+				text: "150SGD"
+				color: (0,0,0,1)
+		BoxLayout:
+			Label:
+				text: "Overview"
+				color: (0,0,0,1)
+		BoxLayout:
+			Label:
+				text: "                                                - Customizable and auto food dispensing"
+				size_hint_x: None
+				color: (0,0,0,1)
+		BoxLayout:
+			Label:
+				text: "          - Real time update"
+				size_hint_x: None
+				color:(0,0,0,1)
+		BoxLayout:
+			Label:
+				text: "              - One year guarantee"
+				size_hint_x: None
+				color: (0,0,0,1)
+		BoxLayout:
+		BoxLayout:
+			Button:
+				text: "Ask us"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.to_contact_form()
+			Button:
+				text: "Buy now"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.to_checkout()
+
+<contact_form>:
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1background.png"
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1cat.png"
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/queries.png"
+	GridLayout:
+		id: form
+		cols: 1
+		row_force_default: True
+		row_default_height: 30
+		spacing: 10
+	GridLayout:
+		id: box
+		cols: 1
+		row_force_default: True
+		row_default_height: 115
+
+<checkout>:
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1background.png"
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1cat.png"
+	GridLayout:
+		cols: 1
+		row_force_default: True
+		row_default_height: 30
+		BoxLayout:
+			Button:
+				text: "<< Back to Product Page"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.manager.transition.direction = 'right'
+					root.manager.current = 'req_dispenser'
+	GridLayout:
+		id: order
+		cols: 1
+		row_force_default: True
+		row_default_height: 30
+		spacing: 5
+
+<settings>:
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1background.png"
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1cat.png"
+	GridLayout:
+		cols: 1
+		row_force_default: True
+		row_default_height: 30
+		spacing: 10
+		BoxLayout:
+			Button:
+				text: "<< Back to Profile"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.manager.transition.direction = 'right'
+					root.manager.current = 'profile'
+		BoxLayout:
+			Button:
+				text: "Update Profile Picture"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.to_picture()
+		BoxLayout:
+			Button:
+				text: "Update Email"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.to_email()
+		BoxLayout:
+			Button:
+				text: "Update Your Password"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.to_password()
+		
+
+<update_pic>:
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1background.png"
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1cat.png"
+	GridLayout:
+		cols: 1
+		row_force_default: True
+		row_default_height: 30
+		spacing: 10
+		BoxLayout:
+			Button:
+				text: "<< Back to Settings"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.manager.transition.direction = 'right'
+					root.manager.current = 'settings'
+		BoxLayout:
+			Label:
+				id: status
+				color: (0,0,0,1)
+		BoxLayout:
+			TextInput:
+				id: input
+				multiline: False
+		BoxLayout:
+			Button:
+				text: "Submit"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.update()
+
+<update_email>:
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1background.png"
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1cat.png"
+	GridLayout:
+		cols: 1
+		row_force_default: True
+		row_default_height: 30
+		spacing: 10
+		BoxLayout:
+			Button:
+				text: "<< Back to Settings"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.manager.transition.direction = 'right'
+					root.manager.current = 'settings'
+		BoxLayout:
+			Label:
+				id: status
+				color: (0,0,0,1)
+		BoxLayout:
+			TextInput:
+				id: input
+				multiline: False
+		BoxLayout:
+			Button:
+				text: "Submit"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.update()
+
+<update_password>:
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1background.png"
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1cat.png"
+	GridLayout:
+		cols: 1
+		row_force_default: True
+		row_default_height: 30
+		spacing: 10
+		BoxLayout:
+			Button:
+				text: "<< Back to Settings"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.manager.transition.direction = 'right'
+					root.manager.current = 'settings'
+		BoxLayout:
+			Label:
+				text: "old password"
+				color: (0,0,0,1)
+			TextInput:
+				id: old_password
+				multiline: False
+				password: True
+		BoxLayout:
+			Label:
+				text: "new password"
+				color: (0,0,0,1)
+			TextInput:
+				id: new_password
+				multiline: False
+				password: True
+		BoxLayout:
+			Label:
+				text: "confirm new password"
+				color: (0,0,0,1)
+			TextInput:
+				id: confirm
+				multiline: False
+				password: True
+		BoxLayout:
+			Button:
+				text: "Submit"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.submit()
+		BoxLayout:
+			Label:
+				id: status
+				color: (0,0,0,1)
+
+<badges>:
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1background.png"
+	BoxLayout:
+		Image:
+			source: "./assets/backgrounds/1cat.png"
+	GridLayout:
+		cols: 1
+		row_force_default: True
+		row_default_height: 30
+		BoxLayout:
+			Button:
+				text: "<< Back to Profile"
+				color: (0,0,0,1)
+				background_normal: "./assets/buttons/long_button.png"
+				background_down: "./assets/buttons/long_button_down.png"
+				on_press:
+					root.manager.transition.direction = 'right'
+					root.manager.current = 'profile'
+	GridLayout:
+		id: badges_display
+		cols: 1
+		row_force_default: True
+		row_default_height: 30
+		BoxLayout:
